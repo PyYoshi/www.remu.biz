@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='ja' ng-app='index' ng-controller='indexCtrl'>
+<head>
+    <meta charset="utf-8">
+    <title>{{PageManager.getTitle()||''}}</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <index-header></index-header>
+
+    <div ng-view="" class="container">Loading...</div>
+
+    <index-footer></index-footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/ctrls/top.js"></script>
+    <script src="/js/ctrls/about.js"></script>
+
+</body>
+</html>
