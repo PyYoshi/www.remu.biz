@@ -7,7 +7,8 @@ app = angular.module('index', ['ngResource'])
 
 app.config(
   ($routeProvider, $locationProvider)->
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false)
+    $locationProvider.hashPrefix('!')
     $routeProvider.when(
         '/about'
         {
