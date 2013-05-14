@@ -15,6 +15,12 @@ app.config(
           templateUrl: '/templates/about.html'
           controller: 'aboutCtrl'
         }
+    ).when(
+        '/about_ja'
+        {
+          templateUrl: '/templates/about_ja.html'
+          controller: 'aboutJaCtrl'
+        }
     ).otherwise(
       {
         redirectTo:'/about'
