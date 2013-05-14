@@ -4,3 +4,5 @@ app/js/*.js
 app/js/*/*.js
 app/js/*.map
 app/js/*/*.map
+app/css/*.css
+app/css/*/*.css
