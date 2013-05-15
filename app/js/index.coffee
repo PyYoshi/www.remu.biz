@@ -4,7 +4,6 @@ $ ()->
   # メニューを開いた状態でどこかタッチすると閉じるように
   $('body').click(
     ()->
-      $('.nav-collapse').collapse('hide')
       $(".open").removeClass("open")
   )
 
