@@ -5,6 +5,7 @@ $ ()->
   $('body').click(
     ()->
       $('.nav-collapse').collapse('hide')
+      $(".open").removeClass("open")
   )
 
 ############################ AngularJS用 ############################
