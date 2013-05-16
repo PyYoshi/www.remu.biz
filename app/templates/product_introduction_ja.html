@@ -2,10 +2,18 @@
     <div class="hero-unit">
         <h1>制作物の紹介</h1>
         <p></p>
-        <p>これまでに開発したものを抜粋して、開発の敬意などを紹介します。</p>
+        <p>これまでに開発したものを抜粋して、開発の経緯などを紹介します。</p>
+
+        <ul>
+            <li><a href="/#!/products_ja#L_Program_Libs">プログラム & ライブラリ</a></li>
+            <li><a href="/#!/products_ja#L_Android">Android関係</a></li>
+            <li><a href="/#!/products_ja#L_GraduationWork">大学卒業研究</a></li>
+            <li><a href="/#!/products_ja#L_Old_Service">過去開発したWebサービス</a></li>
+            <li><a href="/#!/products_ja#L_Developing_Service">現在製作中のサービス</a></li>
+        </ul>
     </div>
 
-    <h2>プログラム & ライブラリ</h2>
+    <h2 id="L_Program_Libs">プログラム & ライブラリ</h2>
     <div class="row-fluid">
         <div class="span6 well">
             <h2>cChardet</h2>
@@ -27,56 +35,80 @@
     <div class="row-fluid">
         <div class="span4 well">
             <h2>python-daemon</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-        <div class="span4 well">
-            <h2>Pytumb2</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-        <div class="span4 well">
-            <h2>GingerQute</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-    </div>
-
-    <div class="row-fluid">
-        <div class="span4 well">
-            <h2>製品名</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-        <div class="span4 well">
-            <h2>製品名</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-        <div class="span4 well">
-            <h2>製品名</h2>
-            <p>作品説明</p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
-    </div>
-
-    <h2>Android関係</h2>
-    <div class="row-fluid">
-        <div class="span4 well">
-            <h2>CyanogenMod 6 for IS01</h2>
-            <p>　初めてAndroid移植に取り組んだ端末</p>
-            <p>　メガネケースという愛称で言われることが多い端末で0円一括時に移植に取り組みました。
-            初めてという事で手探りでの移植のため一筋縄では行きませんでしたが、この移植によってAndroid移植が楽しくなりました。
-            元々のバージョンはDonut(1.6)でしたがEclair(2.1)へのアップグレードが期待されていました。しかしキャリアの意向でアップデートされずにいました。
-            とても大きいニュースでその時、「それなら移植してみようかな」っという軽いノリで始めました。
-            IS01ユーザも多かったためか移植に興味がある人も集まりTwitterなどを通して情報を交換し移植作業が進められました。
-            カメラやワンセグ、赤外線通信などただしく動作しない状況ではありましたが、CyanogenMod 6(Froyo)へ移植は成功しました。
-            現在の端末と比べるともっさりするかもしれませんが、納得の行くパフォーマンスを引き出せた気がします。
-            もともとIS01はメモリが少なかく、GCが走りやすかったのでZRAMをKernelに移植したり、動画や音楽の再生などに使われるメモリ領域を削るなどの調整を行いパフォーマンスを引き伸ばす努力をしました。
+            <p>Pythonで良い振る舞いをするデーモンを作成する際に必須と言えるライブラリ。
+               現行のPythonでも正常に動作するようにメンテナンスをしています。
+               オリジナルは2010年以降メンテナンスが行われておらず依存ライブラリとの間で問題が起きていたためそれの修正を行いました。
             </p>
             <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
         </div>
         <div class="span4 well">
+            <h2>Pytumb2</h2>
+            <p>　PythonでTumblr APIを扱うためのライブラリ。
+               前Ver.のPytumbを一から書き直し、手軽に扱えるように考えながら使えるようにしたもの。
+               Tumblr API v2に対応しておりOAuthを使ってやり取りを行えます。
+               PythonでTwitter APIを使えるようにするtweepyの実装をベースに開発を進めています。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>GingerQute</h2>
+            <p>　英文の構文チェックをしてくれるGingerをLinuxでも使えるようにしたもの。
+               Qt Quick 1のQMLの使い勝手がどのようなものなのか調べる意図も含めて開発しました。
+               ロジック部分はJavaScriptで記述することができるため便利ではありますが、
+               Qt Quickがモバイルをターゲットにしていることから、PCで扱うには難しいUIコンポーネントばかりでした。
+               JavaScriptでアプリを作れる手軽さは有りますが、メリットはモバイル向けにしか無い印象を受けました。
+               Qt Quick 2に期待しています。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4 well">
+            <h2>PeerCastIM for Linux</h2>
+            <p>　PeerCastIMをLinux向けに移植したものです。PeerCastIMと互換性があります。
+               またPeerCastIMをベースに作られているのでDDoS対策などを行なっているためセキュアです。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4"></div>
+        <div class="span4 well">
+            <h2>Total War Replay Parser</h2>
+            <p>　Webサービス開発中に出来上がった副産物
+               Webブラウザ上でバイナリ解析をするライブラリ。
+               Total Warの一部のシリーズのリプレイデータからプレイヤー情報や勝敗情報を解析/取得する機能を提供します。
+               JavaScript(CoffeeScript)製でブラウザだけでなくNodeJSからも使用可能です。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <h2 id="L_Android">Android関係</h2>
+    <div class="row-fluid">
+        <div class="span6 well">
+            <h2>CyanogenMod 6 for IS01</h2>
+            <p>　初めてAndroid移植に取り組んだ端末</p>
+            <p>　メガネケースという愛称で言われることが多い端末で0円一括時に移植に取り組みました。
+                初めてという事で手探りでの移植のため一筋縄では行きませんでしたが、この移植によってAndroid移植が楽しくなりました。
+                元々のバージョンはDonut(1.6)でしたがEclair(2.1)へのアップグレードが期待されていました。しかしキャリアの意向でアップデートされずにいました。
+                とても大きいニュースでその時、「それなら移植してみようかな」っという軽いノリで始めました。
+                IS01ユーザも多かったためか移植に興味がある人も集まりTwitterなどを通して情報を交換し移植作業が進められました。
+                カメラやワンセグ、赤外線通信などただしく動作しない状況ではありましたが、CyanogenMod 6(Froyo)へ移植は成功しました。
+                現在の端末と比べるともっさりするかもしれませんが、納得の行くパフォーマンスを引き出せた気がします。
+                もともとIS01はメモリが少なかく、GCが走りやすかったのでZRAMをKernelに移植したり、動画や音楽の再生などに使われるメモリ領域を削るなどの調整を行いパフォーマンスを引き伸ばす努力をしました。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span6 well">
+            <h2>Json Android Compare</h2>
+            <p>　json-android-compareをベースにJsonPullParserとJackson JsonのObject Mappingのベンチを追加を追加したAndroid上でベンチマークをとるアプリです。
+                Androidでアプリを作る際、JSONを扱うことが多いので作成しました。このアプリを使うことによってスムーズにJsonパーサを選ぶことができるようになると思います。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12 well">
             <h2>CyanogenMod 9 for P-01D</h2>
             <p>　移植2作目の端末です。もともと使っていた端末の調子が悪くなったという事で安い端末を探しているところ出会いました。</p>
             <p>　選んだ理由は単純で6000円以内で買えてbootloaderにロックがかかっていなかったためです。bootloaderのロックがかかっていないのでfastbootが使えるため、容易にカスタムROMを導入することができます。</p>
@@ -93,18 +125,11 @@
             </p>
             <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
         </div>
-        <div class="span4 well">
-            <h2>Json Android Compare</h2>
-            <p>　json-android-compareをベースにJsonPullParserとJackson JsonのObject Mappingのベンチを追加を追加したAndroid上でベンチマークをとるアプリです。
-                Androidでアプリを作る際、JSONを扱うことが多いので作成しました。このアプリを使うことによってスムーズにJsonパーサを選ぶことができるようになると思います。
-            </p>
-            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
-        </div>
     </div>
 
-    <h2>大学卒業研究</h2>
+    <h2 id="L_GraduationWork">大学卒業研究</h2>
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span12 well">
             <h2>ベンチャー企業検索エンジン</h2>
             <p></p>
             <p></p>
@@ -113,6 +138,49 @@
         </div>
     </div>
 
+    <h2 id="L_Old_Service">過去開発したWebサービス</h2>
+    <div class="row-fluid">
+        <div class="span6 well">
+            <h2>アニメ関連の携帯向けサイト</h2>
+            <p>　アニメの話題などを扱う携帯向けサイト。高校時代にBBSなどを用意してそこでみんなで語り合うフォーラムのようなものを運営していました。
+               コミュニケーションの場をインターネットで構築できたことへの素直な感動、ユーザからのレスポンスが面白いものだと思い、プログラミングにはなにかしら人と人をつなげることができる力があるのではないかと考え始めた頃です。
+               このころからプログラミングというものに興味が出てきて、訪問カウンターや画像アップロード付きのBBSなどをPHPで作るようになりました。
+            </p>
+            <p>大学生活が始まると同時にサイトを閉鎖(T_T)</p>
+        </div>
+        <div class="span6 well">
+            <h2>Tumblrの記事をepubにするサイト</h2>
+            <p>Tumblrに流れてくる綺麗な写真などをスマートフォンでも見れないかと考えて作成したサービス。Androidの初期くらいに作成。
+               登録されたアカウントから定期的にTumblr APIを使用して記事を収集し、epubに変換しアウトプットする仕組みです。
+               DoSによる自宅サーバ撃沈とその当時の知識不足で復旧不可能になったためあえなく終了(大人の事情も有)。
+               日本からよりアメリカやイギリスからのアクセスが多かったです。
+               CRON+Python+MySQLで作りました。
+            </p>
+        </div>
+    </div>
 
-
+    <h2 id="L_Developing_Service">現在製作中のサービス</h2>
+    <div class="row-fluid">
+        <div class="span6 well">
+            <h2>Game Collector (仮称)</h2>
+            <p>　PCゲームダウンロード販売を行なっているサイトから価格情報を取得しセール情報を発信するサイト</p>
+            <p>現在サイトリニューアル工事のため 一時停止中</p>
+            <p>クローラ: Python
+               バックエンド: Go言語, MariaDB
+               フロントエンド: CoffeeScript, AngularJS, Bootstrap
+               にて再開発中
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span6 well">
+            <h2>Japan Total Warコミュニティサイトの一部担当</h2>
+            <p>　まだリリースされていないので詳しいことはかけませんが、ゲームのリプレイデータを登録/公開するサイト
+               バックエンド: Python, MySQL
+               フロントエンド: CoffeeScript, Bootstrap, AngularJS
+               で構成されたWebサービスです。
+               デザイナとの2人で開発中です。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
 </div>
