@@ -1,0 +1,118 @@
+<div class="container-fluid">
+    <div class="hero-unit">
+        <h1>制作物の紹介</h1>
+        <p></p>
+        <p>これまでに開発したものを抜粋して、開発の敬意などを紹介します。</p>
+    </div>
+
+    <h2>プログラム & ライブラリ</h2>
+    <div class="row-fluid">
+        <div class="span6 well">
+            <h2>cChardet</h2>
+            <p>　テキストエンコーディングを高速に判定するPython向けC拡張ライブラリです。 Pythonのライブラリには純粋なPythonで書かれているchardetというを判定するライブラリがありましたが、純粋なPythonで書かれていることから高速に処理をしたい時に必ずボトルネックになるライブラリでした。どうしても高速に動作して欲しいWebクローラを作成しているときに必要であると考え作成しました。</p>
+            <p>　C/C++部分のコードはFirefoxで使われていたuniversalchardetに複数エンコーディングのサポートを追加し、Confidence(正確度)を取得できるように修正しました。これはchardetの実行結果に合わせるために行いました。またメモリーリークも存在していたため修正したコードを開発者にコミットも行いました。</p>
+            <p>　ベンチマークを行ったところ、chardetに比べ3000倍近くの速度を達成しました。</p>
+            <p>　Python2.7+ 3.3+をサポート</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span6 well">
+            <h2>Tweet Now Browsing!</h2>
+            <p>　現在見ているWebページをTwitterに投稿するChrome拡張です。 現在では投稿するウィジェットが用意されていますが、２年ほど前には手軽に投稿できるものは用意されていませんでした。そのためHTML+JavaScriptで手軽に投稿できるものが欲しいと思い作成しました。現在の公式投稿ウィジェットと比べて、2つの利点があるかと思います。</p>
+            <p>　１つ目にウィジェットが設置されていなくても、この拡張をインストールすれば手軽に投稿ができます。２つ目にポップアップ拡張に比べて素早くログインチェックを行います。Chrome拡張APIのバックグラウンド処理を利用しており、このプログラムが自動的にTwitterにログインしているかTwitterのWebページへ確認します。これにより投稿時のもたつきを最小限に抑えています。</p>
+            <p>　このプログラムはGoogle Devfest 2010 Japanに参加するための作品として作られました。リリース当初はJavaScriptで作成していましたが、CoffeeScriptを知り、最適化を含めて書き直しました。Coffeeはとても可読性の高いコードを書くことができ、またJavaScriptへコンパイルされたコードも可読性もJSに比べて高く、デバッグも容易に行える印象でした。ただし、CoffeeはJavaScriptを学習していないと扱えない部分が多いので学習コストが高くなるという印象を受けました。</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4 well">
+            <h2>python-daemon</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>Pytumb2</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>GingerQute</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4 well">
+            <h2>製品名</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>製品名</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>製品名</h2>
+            <p>作品説明</p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <h2>Android関係</h2>
+    <div class="row-fluid">
+        <div class="span4 well">
+            <h2>CyanogenMod 6 for IS01</h2>
+            <p>　初めてAndroid移植に取り組んだ端末</p>
+            <p>　メガネケースという愛称で言われることが多い端末で0円一括時に移植に取り組みました。
+            初めてという事で手探りでの移植のため一筋縄では行きませんでしたが、この移植によってAndroid移植が楽しくなりました。
+            元々のバージョンはDonut(1.6)でしたがEclair(2.1)へのアップグレードが期待されていました。しかしキャリアの意向でアップデートされずにいました。
+            とても大きいニュースでその時、「それなら移植してみようかな」っという軽いノリで始めました。
+            IS01ユーザも多かったためか移植に興味がある人も集まりTwitterなどを通して情報を交換し移植作業が進められました。
+            カメラやワンセグ、赤外線通信などただしく動作しない状況ではありましたが、CyanogenMod 6(Froyo)へ移植は成功しました。
+            現在の端末と比べるともっさりするかもしれませんが、納得の行くパフォーマンスを引き出せた気がします。
+            もともとIS01はメモリが少なかく、GCが走りやすかったのでZRAMをKernelに移植したり、動画や音楽の再生などに使われるメモリ領域を削るなどの調整を行いパフォーマンスを引き伸ばす努力をしました。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>CyanogenMod 9 for P-01D</h2>
+            <p>　移植2作目の端末です。もともと使っていた端末の調子が悪くなったという事で安い端末を探しているところ出会いました。</p>
+            <p>　選んだ理由は単純で6000円以内で買えてbootloaderにロックがかかっていなかったためです。bootloaderのロックがかかっていないのでfastbootが使えるため、容易にカスタムROMを導入することができます。</p>
+            <p>　この端末自体はあんまり人気がなく開発者は私一人で始まりました。
+                IS01の移植から2年くらいブランクがありましたが、その当時の失敗などを記録していたので移植をはじめるまでの準備はスムーズにできたと思います。
+                ただOSのバージョンが3つくらい上がっていたので当時使えたノウハウを生かしきれず、これまた手探りで行いました。
+                まずKernelのGPUドライバの移植から始めました。ICSから描画周りが大きく変わっておりそのままでは描画はうまく行きません。またQualcommからユーザランドのグラフィックドライバもリリースされたため、まずここをどうにかしないと行けないなという目星が付けられました。
+                移植方法はQualcommのCodeauroraからP-01Dに似たKernelコードを探し、それとの差分をチェックしながら行いました。Kernelのコードはとても複雑で実装するときに依存する関数等をチェックを行い互換性を確認しながら行います。なぜなら一見コンパイルが通ってたとしても実際に端末に入れてみるとKernelパニックを起こしてしまうからです。
+                GPUドライバの移植作業が終わり、次にAndroidOS側で必要な機能を調べKernelへ移植する作業をしました。画面同期機能を提供するGENLOCKでこれがないとICSで描画することができませんでした。
+                というようにKernelの移植からはじめ、Androidへとレイヤーを上げながら移植がすすめられました。
+                Androidの起動が拝められるようになると何人かの開発者も増え元々の端末の機能をある程度使えるように出来ました。なかでも3G/通話が行えるようになったのは大きな成果だと思います。
+                日常で使えるレベルまでの出来になったかと自負しています。
+                現在も開発は続けています。ただしROMの提供はおこなっていません。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+        <div class="span4 well">
+            <h2>Json Android Compare</h2>
+            <p>　json-android-compareをベースにJsonPullParserとJackson JsonのObject Mappingのベンチを追加を追加したAndroid上でベンチマークをとるアプリです。
+                Androidでアプリを作る際、JSONを扱うことが多いので作成しました。このアプリを使うことによってスムーズにJsonパーサを選ぶことができるようになると思います。
+            </p>
+            <p><a class="btn btn-inverse" href="" target="_blank">詳しくはこちら &raquo;</a></p>
+        </div>
+    </div>
+
+    <h2>大学卒業研究</h2>
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>ベンチャー企業検索エンジン</h2>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p>大学内での制作物なので非公開です。</p>
+        </div>
+    </div>
+
+
+
+</div>

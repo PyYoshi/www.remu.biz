@@ -27,6 +27,12 @@ app.config(
           templateUrl: '/templates/about_ja.html'
           controller: 'aboutJaCtrl'
         }
+    ).when(
+        '/products_ja'
+        {
+          templateUrl: '/templates/product_introduction_ja.html'
+          controller: 'productIntroJaCtrl'
+        }
     ).otherwise(
       {
         redirectTo:'/about'
