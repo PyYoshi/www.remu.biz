@@ -3,6 +3,7 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/app/js/index.js" />
+        <item url="file://$PROJECT_DIR$/app/js/ctrls/product_introduction_ja.js" />
         <item url="file://$PROJECT_DIR$/app/js/ctrls/about_ja.js" />
         <item url="file://$PROJECT_DIR$/app/js/ctrls/about.js" />
         <item url="file://$PROJECT_DIR$/app/js/ctrls/top.js" />
@@ -11,6 +12,7 @@
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/app/js/index.js" />
+      <root url="file://$PROJECT_DIR$/app/js/ctrls/product_introduction_ja.js" />
       <root url="file://$PROJECT_DIR$/app/js/ctrls/about_ja.js" />
       <root url="file://$PROJECT_DIR$/app/js/ctrls/about.js" />
       <root url="file://$PROJECT_DIR$/app/js/ctrls/top.js" />
