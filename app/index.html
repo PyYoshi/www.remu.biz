@@ -16,7 +16,27 @@
 
         <index-header></index-header>
 
-        <div ng-view="" class="container">Loading...</div>
+        <div ng-view="" class="container">
+            <div id="nowLoading">
+                <p>Now Loading...</p>
+                <p></p>
+                <p class="text-info">Support Browser:</p>
+                <ul>
+                    <li><p>Chrome</p></li>
+                    <li><p>Chrome for Android</p></li>
+                    <li><p>Firefox</p></li>
+                    <li><p>Firefox for Android</p></li>
+                    <li><p>Opera</p></li>
+                    <li><p>Opera Beta for Android</p></li>
+                    <li><p>Internet Explorer 9</p></li>
+                    <li><p>Internet Explorer 10</p></li>
+                </ul>
+                <noscript>
+                 <p class="text-error">JavaScript disabled.</p>
+                 <p class="text-error">You must enable JavaScript of Web Browser.</p>
+                </noscript>
+            </div>
+        </div>
 
         <index-footer></index-footer>
 
