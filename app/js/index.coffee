@@ -33,6 +33,12 @@ app.config(
           templateUrl: '/templates/product_introduction_ja.html'
           controller: 'productIntroJaCtrl'
         }
+    ).when(
+        '/graduation_works_ja'
+        {
+          templateUrl: '/templates/graduation_works_ja.html'
+          controller: 'gradWorksJaCtrl'
+        }
     ).otherwise(
       {
         redirectTo:'/about'

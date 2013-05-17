@@ -1,0 +1,289 @@
+<div class="container-fluid">
+    <div class="hero-unit">
+        <h2>卒業研究について</h2>
+        <p></p>
+        <p>実際に作ったコードやデモの公開はできませんが、研究発表で作成した本稿をベースに紹介します。</p>
+        <ul>
+            <li><a href="/#!/graduation_works_ja/#Ld_Intro">はじめに</a></li>
+            <li><a href="/#!/graduation_works_ja/#Ld_OverView">検索エンジンの実装概要</a></li>
+        </ul>
+        <ul>
+            <li>検索エンジンの実装</li>
+            <ul>
+                <li><a href="/#!/graduation_works_ja/#Ld_Crawler">クローラ</a></li>
+                <li><a href="/#!/graduation_works_ja/#Ld_Parser">パーサ</a></li>
+                <li><a href="/#!/graduation_works_ja/#Ld_Eval_Prog">評価プログラム</a></li>
+                <li><a href="/#!/graduation_works_ja/#Ld_Socket_Comu">ソケット通信</a></li>
+                <li><a href="/#!/graduation_works_ja/#Ld_Parallel">並列処理</a></li>
+            </ul>
+            <li><a href="/#!/graduation_works_ja/#Ld_Result">実験結果</a></li>
+            <li><a href="/#!/graduation_works_ja/#Ld_End">おわりに</a></li>
+            <li><a href="/#!/graduation_works_ja/#Ld_Env">開発環境</a></li>
+            <li><a href="/#!/graduation_works_ja/#Ld_Ref">参考文献</a></li>
+        </ul>
+    </div>
+
+    <section id="Ld_Intro">
+        <h2>はじめに</h2>
+        <div class="row-fluid">
+            <div class="span12 well">
+                <p>　本研究では、Webサイト検索エンジンの開発を行いました。
+                    開発にあたって、Googleに代表される一般向けの汎用検索エンジンを開発しようとすると、限られたマンパワーでは既存のものに匹敵するようなものは作成困難と思われますが、
+                    検索対象とするドメインを特化した場合には研究の余地が残されていると思いました。
+                    そこで本開発では、ベンチャー企業の検索に特化した検索エンジンの開発を行い、検索結果をTF-IDF、LSA、LDAの３つの方法で比較評価を行いました。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ld_OverView">
+        <h2>検索エンジンの概要</h2>
+        <div class="row-fluid">
+            <div class="span12 well">
+                <p>　Webサイト検索エンジンには様々なものがあるが、Googleのページランク方式が登場してから飛躍的に検索精度が向上し、より便利にネットサーフィンが行えるようになりました。
+                    検索エンジンの種類は大きく分けて二種類あり、人手を使いサイトのカテゴライズを行うディレクトリ型と、ボットと呼ばれる自動収集プログラムでサイトを探しだすロボット型があります。
+                    本開発ではロボット型検索エンジンを開発しました。
+                </p>
+                <p>　以下 各実装の概要です。</p>
+                <h3>クローラ</h3>
+                <p>　HTML等のWebコンテンツを収集する機能を担います。
+                    Webページ、今回はHTMLを解析しリンクを辿り、Webページを収集します。収集されたページはデータストアに保存します。
+                </p>
+                <h3>パーサ</h3>
+                <p>　HTML等のページコンテンツから本文を抽出し構文解析によって評価できる形にするものです。
+                    今回はHTMLからタグ情報を除去した本文を抽出し、構文解析器（MeCab）を用い本文を品詞毎に分類し、ストップワードの除去をします。
+                </p>
+                <h3>評価プログラム</h3>
+                <p>　ベンチャー企業を推定するプログラムです。
+                    今回は企業サイトを1つのドキュメントとしコーパスを生成します。
+                    生成されたコーパスを元に、TF-IDF(Term Frequency-Inverse Document Frequency)、LSA(Latent Semantic Analysis)、LDA(Latent Dirichlet Allocation)の3種類で評価推定を行います。
+                </p>
+                <p>　以下 各アルゴリズムの簡単な概要です。</p>
+                <h4>TF-IDFについて</h4>
+                <ul>
+                    <li><p>式：tfidf=tf･idf</p></li>
+                    <li><p>値が大きいほど、ドキュメントが重要であるという指標です。
+                        この手法を全文検索に有利です。
+                    </p></li>
+                </ul>
+                <h4>TF(Term Frequency)について</h4>
+                <ul>
+                    <li><p>ドキュメント内のキーワードが使用されているかの指標です。
+                        キーワードが多く含まれるに連れてキーワードについてより詳しく説明していることになります。
+                    </p></li>
+                    <li><p>単語の頻度/文章で出現する総単語数</p></li>
+                </ul>
+                <h4>IDF(Inverse Document Frequency) について</h4>
+                <ul>
+                    <li><p>キーワードがどれだけのドキュメントで使用されているかの指標です。
+                        多くのドキュメントに特定のキーワードが多く含まれているよりも少ないドキュメントにあるほうが重要です。
+                    </p></li>
+                </ul>
+                <h4>LSAについて</h4>
+                <ul>
+                    <li><p>LSAは潜在的意味解析と呼ばれ、キーワードやドキュメントの意味を学習しベクトルで表現します。
+                        特徴はキーワード間やキーワード、ドキュメント間の類似性を求めることができます。
+                    </p></li>
+                </ul>
+                <h4>LDAについて</h4>
+                <ul>
+                    <li><p>LDAは潜在的ディレクトリ配分法と呼ばれ、トピックをドキュメントから教師なしで推定する手法です。
+                        特徴はドキュメントの背景にあるトピックが何か知ることができます。
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ld_Implements">
+        <h2>検索エンジンの実装</h2>
+        <div class="row-fluid">
+            <div class="span12 well">
+                <p>すべてのプログラムはC/C++とPythonによって開発されています。</p>
+                <section id="Ld_Crawler">
+                    <h3>クローラ</h3>
+                    <p>　企業サイトを探し出すために以下のサイトを親サイトと定義します。</p>
+                    <ul>
+                        <li><a href="http://www.keidanren.or.jp/japanese/profile/kigyo/members.html">経団連の起業リスト</a></li>
+                        <li><a href="http://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E4%BC%81%E6%A5%AD%E4%B8%80%E8%A6%A7">Wikipediaの日本企業一覧</a></li>
+                        <li><a href="http://www.startups-japan.com/clients/index/page:1/">Startups Japan</a></li>
+                    </ul>
+                    <p>　これらをクローラとは別のコードを用いスクレイピング後リンクのみを抽出しました。
+                        このリンクを元にクロールしていきます。
+                    </p>
+                    <p>　クローラはScrapyというクローラデーモンをライブラリとして使い、テンプレートエンジンを用いてスクリプトの生成を行いました。
+                        生成後、ディスパッチャへジョブを登録します。
+                    </p>
+                </section>
+                <section id="Ld_Parser">
+                    <h3>パーサ</h3>
+                    <p>　クローラで収集されたHTMLデータを用い、構文解析を行なっていきます。</p>
+                    <p>　HTMLタグの除去や不必要なデータはlxmlライブラリを用い高速に処理します。</p>
+                    <p>　HTMLをパースしていく際に文字コード識別に問題が生じる場合、日本のサイトをターゲットにしているので、
+                        EUC-JP、Shift-JIS、UTF-8などの多く使われる文字コードで正しいかどうか総当りでチェックするようにしました。
+                    </p>
+                    <p>　<a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-charset_detect-py">サンプルコード</a></p>
+                    <p>　構文解析はMeCabを用い本文を品詞毎に分解し、ストップワードの除去を行い必要な語句だけを抽出します。</p>
+                    <ul>
+                        <li><p>ストップワードの除去: 区切られた単語から動詞・名詞・形容詞を除くすべての品詞を除去する。その語句単体では意味の通じないものを削除することによって精度向上を図るだけでなく、計算量を減らす役割を持っています。</p></li>
+                    </ul>
+                    <p>　<a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-strip_stopwords-py">サンプルコード</a></p>
+                </section>
+                <section id="Ld_Eval_Prog">
+                    <h3>評価プログラム</h3>
+                    <p>　コーパスの生成から結果の出力まで、gensimを用いました。コーパス生成後、実際に評価していきます。</p>
+                    <ul>
+                        <li><a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-gen_corpus-py">コーパス生成用のサンプルコード</a></li>
+                    </ul>
+                    <p class="text-error">　評価プログラムはこのプログラムのコアとなる部分であるため公開は行いません。</p>
+                </section>
+                <section id="Ld_Socket_Comu">
+                    <h3>ソケット通信</h3>
+                    <p>　今回クローラの実装で複数サーバによるクローリングを行なっているが、これはより効率的にWebサイトを巡回する１つの手法です。</p>
+                    <p class="text-error">　ここもコアとなる部分であるため公開は行いません</p>
+                    <p>　そのためディスパッチャとワーカ間で+1をする処理をサンプルとします。</p>
+                    <ul class="inline">
+                        <li><a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-async_dis-py">ディスパッチャ側のサンプルコード</a></li>
+                        <li><a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-async_cli-py">クライアント側のサンプルコード</a></li>
+                    </ul>
+                    <p>　ソケット通信はPython標準の非同期通信ライブラリasyncoreを使用しました。</p>
+                    <p>　ディスパッチャ側のPlusOneHandlerを見てください。
+                        これが非同期通信のハンドラーになります。
+                        asyncore.dispatcher_with_sendを継承することによって非同期通信ハンドラを実装していきます。
+                        クライアントから命令が来たときに呼び出されるハンドラで、ここに+1処理を記述しました。
+                    </p>
+                    <p>　なぜ非同期通信ライブラリを使用しているかというと、同期通信であると複数サーバからディスパッチャにアクセスするとき、
+                        命令する前の処理が終了するまで待たされてしまう為です。
+                        非同期通信であれば並列的に処理が可能であり同期処理の実装の手間が省ける為です。
+                    </p>
+                    <p>　サーバ間をつなぐためにSSHポートフォワーディングを行いました。
+                        使用できるポート数の制約と通信内容のセキュア化の都合上、意識しなくても手軽に利用できるため、この手法を用いてサーバ間を通信しました。
+                    </p>
+                    <p>　<a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-ssh_tunnel-py">サンプルコード</a></p>
+
+                </section>
+                <section id="Ld_Parallel">
+                    <h3>並列処理</h3>
+                    <p>　並列処理はPython標準のライブラリmultiprocessingを使用しました。multiprocessing.Pipeを用い親プロセスと子プロセスでやり取りをし、multiprocessing.Queueを用いてデータの共有を行い処理をしていきます。</p>
+                    <p>　なぜマルチプロセスによる並列処理を行うかというと、グローバルインタプリンタロック(GIL)があるためです。
+                        メモリアクセスをスレッドセーフにするために1スレッドずつしか処理が行えず、計算などの処理は速度向上ができないためです。しかしながらIO処理では有用です。</p>
+                    <p><a href="https://gist.github.com/PyYoshi/0251c8343aa21bc64a12#file-mp_sample-py">サンプルコード</a></p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ld_Result">
+        <h2>実験結果と評価</h2>
+        <div class="row-fluid">
+            <h3>実験結果</h3>
+            <div class="span12 well">
+                <p>　ベンチャー企業の定義は「リスク」「挑戦」「冒険」「ベンチャー」「先進」の５つのいずれかが含まれているとしました。
+                    クロールを行った企業は１５０あり、そのなかの６０件はベンチャー企業であると明示している企業サイトか抽出を行い、その他の９０件はWikipediaの企業リストから無作為に抽出したものです。
+                </p>
+                <p>　以下が実験結果です。値が大きい３件を順に抽出しました。赤文字で書かれている箇所がベンチャー企業であると明示されているものです。
+                    このなかで特徴てきなものとしましては、「冒険」という検索クエリです。
+                    TF-IDFでは推論は行わないので２件しか結果が出なかったにもかかわらず、LSAは推論により結果を出すので３件以上結果が推論されました。
+                </p>
+                <p><img src="/image/gradwork/result1.jpg" alt=""/></p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <h3>評価</h3>
+            <div class="span12 well">
+                <p>　TF-IDFよりLSAが良いと考えます。</p>
+                <p>　なぜなら、TFIDFは全文検索には最適であるが、ドキュメント内に検索クエリが含まれていないと結果が出てきませんが、LSAは推論により、より多くのキーワードに対応できるからです。</p>
+                <p></p>
+                <p>　クロールについては、企業サイトを１５０件中約８０件をデータとして扱える形に出来ました。残りは文字コード識別に問題があり扱えないデータがあり実験結果として出せませんでした。</p>
+                <p></p>
+                <p>　ストップワードについては、それだけでは理解出来ない単語が上位に出力されてしまう不具合がありました。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ld_End">
+        <h2>おわりに</h2>
+        <div class="row-fluid well">
+            <div class="span12">
+                <p>　今回の開発ではロボット型検索エンジンの主要な機能である、クローラ、パーサ、評価プログラムの実装を行いました。
+                    今後の課題は、LDAの評価プログラムの設計ミスにより評価結果を出すことができませんでした。
+                    そのプログラムの改善と、クローラ、パーサだけでなく評価プログラムを分散処理で実装する２つの課題です。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ld_Env">
+        <h2>開発環境</h2>
+        <div class="row-fluid well">
+            <div class="span12">
+                <h3>サーバ</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>　</th>
+                            <th>CPU</th>
+                            <th>RAM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="success">
+                            <td>サーバA (CentOS6)</td>
+                            <td>Pentium4 3.2GHz (1cores/2threads)</td>
+                            <td>3GB</td>
+                        </tr>
+                        <tr class="error">
+                            <td>サーバB (CentOS6)</td>
+                            <td>Atom 330 1.6GHz (2cores/4threads)</td>
+                            <td>2GB</td>
+                        </tr>
+                        <tr class="warning">
+                            <td>サーバC (Ubuntu Server10.04)</td>
+                            <td>Core i3-2100 3.1GHz (2cores/4threads)</td>
+                            <td>12GB</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>言語</h3>
+                <ul>
+                    <li><p>Python2.6.5～2.7.2</p></li>
+                    <li><p>C/C++</p></li>
+                    <li><p>Shell Script</p></li>
+                </ul>
+                <h3>データベース</h3>
+                <ul>
+                    <li><p>MySQL5.5.20</p></li>
+                </ul>
+                <h3>構文解析ソフト</h3>
+                <ul>
+                    <li><p>MeCab</p></li>
+                    <li><p>NAIST（奈良先端科学技術大学院大学）のMeCab用辞書データ</p></li>
+                </ul>
+                <h3>Python外部ライブラリ</h3>
+                <ul>
+                    <li><p>Gensim</p></li>
+                    <li><p>Scrapy</p></li>
+                    <li><p>Sqlalchemy</p></li>
+                    <li><p>Paramiko</p></li>
+                    <li><p>Lxml</p></li>
+                    <li><p>Simplejson</p></li>
+                    <li><p>MeCab</p></li>
+                    <li><p>Jinja2</p></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="#Ld_Ref">
+        <h2>参考文献</h2>
+        <div class="row-fluid well">
+            <ul>
+                <li><p>P. Baldi,P. Frasconi,P. Smyth, 水田,南,小宮 (訳) ：確率モデルによるWebデータ解析法,森北出版,(2007)</p></li>
+                <li><p>Kevin Hemenway, Tara Calishain: Spidering Hacks,O’REILLY,(2003)</p></li>
+                <li><p><a href="http://www.slideshare.net/mrorii/ohmapad">SPYSEE新検索機能の裏側</a></p></li>
+                <li><p><a href="http://www.slideshare.net/tsubosaka/tokyotextmining">LDA入門</a></p></li>
+                <li><p><a href="http://people.sc.fsu.edu/~jburkardt/data/mm/mm.html">The Matrix Market File Format</a></p></li>
+            </ul>
+        </div>
+    </section>
+
+</div>
